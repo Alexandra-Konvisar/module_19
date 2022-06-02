@@ -25,7 +25,7 @@ def test_no_clear_list_of_pets_valid_key(filter= ''):
     assert status == 200 #вызываем проверку статуса ответа, который должен быть равен 200
     assert len(result['pets']) > 0 #Вызываем проверку наличия питомцев в списке питомцев('pets' > 0)
 
-def test_add_new_pet_valid_data(name= 'Lohmatiy', animal_type= 'Sapog', age='2', pet_photo= 'images/Lohmatyi_Sapog.jpg'):
+def test_add_new_pet_valid_data(name= 'Lohmatiy', animal_type= 'Sapog', age='2', pet_photo= 'images/kavapu.jpg'):
     '''Проверяем добавление нового питомца с корректными данными'''
 
     # Получаем полный путь изображения питомца и сохраняем в переменную pet_photo
@@ -57,7 +57,7 @@ def test_delete_tet():
     _, list_my_pets = pf.get_list_of_pets(auth_key, 'my_pets')
     #Если в списке нет питомцев(длина списка равна нулю), то создаем нового питомца
     if len(list_my_pets)== 0:
-        pf.add__about_new_pet('Volosatyi', 'Tatok', '23', 'images/Lisiy_Sapog.jpg')
+        pf.add__about_new_pet('Volosatyi', 'Tatok', '23', 'images/haski.jpeg')
         _, list_my_pets = pf.get_list_of_pets(auth_key, 'my_pets') #Затем снова запрашиваем список своих питомцев и созраняем результат запроса в переменную list_my_pets, а в переменную _ сoхраняем статус ответа(он нам не потребуется)
     pet_id = list_my_pets['pets'][0]['id'] # Создаем перемнную pet_id в которую созраняем id первого в списке питомца
 
@@ -102,7 +102,7 @@ def test_add_new_pet_without_photo(name= 'Zak', animal_type= 'dump', age='37'):
     assert status == 200 #вызываем проверку статуса ответа, который должен быть равен 200
     assert result['name'] == 'Zak' #Вызываем проверку того что в переменной result имя питомца совпадает с тем именем питомца,которое мы указали при добавлении(name= 'Zak')
 
-def test_add_photo_of_pets_valid(pet_photo= 'images/Lisiy_Sapog.jpg'):
+def test_add_photo_of_pets_valid(pet_photo= 'images/kavapu.jpg'):
     """Проверяем возможность добавления нового фото для созданного питомца"""
 
     # Получаем полный путь изображения питомца и сохраняем в переменную pet_photo
@@ -116,7 +116,7 @@ def test_add_photo_of_pets_valid(pet_photo= 'images/Lisiy_Sapog.jpg'):
 
     #Проверяем, если список питомцев пустой, то добавляем нового питомца (тут пользуемся методом add__about_new_pet)
     if len(list_my_pets['pets']) == 0:
-        pf.add__about_new_pet(auth_key, 'Pol','MuadDib', '77', 'images/Lisiy_Sapog.jpg')
+        pf.add__about_new_pet(auth_key, 'Pol','MuadDib', '77', 'images/kavapu.jpg')
         _,list_my_pets = pf.get_list_of_pets(auth_key, 'my_pets') #Запрашиваем список питомцев
 
     pet_id = list_my_pets['pets'][0]['id'] # Создаем перемнную pet_id в которую созраняем id первого в списке питомца

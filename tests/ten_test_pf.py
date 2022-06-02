@@ -60,7 +60,7 @@ def test_get_list_pets_invalid_auth_key(filter= 'my_pets'):
     assert status == 403
 
 def test_add_new_pets_name_animal_type_latin(name = pets_data.name_latin, animal_type= pets_data.animal_type_latin,age= '3',
-                                             pet_photo= 'images\Lohmatyi_Sapog.jpg'):
+                                             pet_photo= 'images\kavapu.jpg'):
     """Проверяем добавление питомца, входные данные(все тип строка) имя и тип, написаны латиницей(заодно проверка букв в верхнем и нижнем  регистре
     конечно возможно лучше будет вынести это в отдельный тест), ответ со статусом 200, и проверку наличия
     нового питомца по имени и типу"""
@@ -75,7 +75,7 @@ def test_add_new_pets_name_animal_type_latin(name = pets_data.name_latin, animal
 
 
 def test_add_new_pets_name_animal_type_cyrilic(name = pets_data.name_cyrillic, animal_type= pets_data.animal_type_cyrillic,
-                                               age = '12', pet_photo= 'images/Lohmatyi_Sapog.jpg'):
+                                               age = '12', pet_photo= 'images/kavapu.jpg'):
     """Проверяем  добавление нового питомца, входные данные(все тип строка) имя и тип, написанны  киррилицей(заодно проверка букв в верхнем и нижнем  регистре), ответ со статусом 200, проверка наличия
     нового питомца по  имени и типу"""
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
@@ -87,7 +87,7 @@ def test_add_new_pets_name_animal_type_cyrilic(name = pets_data.name_cyrillic, a
     assert result['animal_type'] == pets_data.animal_type_cyrillic
 
 def test_add_new_pets_name_simbol(name= pets_data.name_symbol, animal_type = pets_data.animal_type_latin, age = '5',
-                                  pet_photo= 'images/Lohmatyi_Sapog.jpg'):
+                                  pet_photo= 'images/kavapu.jpg'):
     """Проверяем добавление нового питомца, входные данные(все тип строка) имя написанно символамиб тип латиницей, ответ статус 400"""
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
     _, auth_key = pf.get_api_key(data.valid_email, data.valid_password)
@@ -95,7 +95,7 @@ def test_add_new_pets_name_simbol(name= pets_data.name_symbol, animal_type = pet
 
     assert status == 400
 
-def test_add_new_pets_animal_type_symbol(name= pets_data.name_latin, animal_type= pets_data.animal_type_symbol, age= '9',pet_photo = 'images/Lohmatyi_Sapog.jpg'):
+def test_add_new_pets_animal_type_symbol(name= pets_data.name_latin, animal_type= pets_data.animal_type_symbol, age= '9',pet_photo = 'images/kavapu.jpg'):
     """Проверяем добавление нового питомца, входные данные(все тип строка)  имя написанно латиницей, тип спецсимволами, ответ статус  400"""
     pet_photo = os.path.join(os.path.dirname(__file__),pet_photo)
     _, auth_key = pf.get_api_key(data.valid_email, data.valid_password)
@@ -104,7 +104,7 @@ def test_add_new_pets_animal_type_symbol(name= pets_data.name_latin, animal_type
     assert status == 400
 
 def test_add_new_pets_age_leter(name=pets_data.name_latin, animal_type= pets_data.animal_type_latin, age= pets_data.age_leter,
-                                pet_photo = 'images/Lohmatyi_Sapog.jpg'):
+                                pet_photo = 'images/kavapu.jpg'):
     """Проверяем добавление нового питомца, вхлдные данные(все тип строка) имя и тип латиницей,  возраст буквами,
     ожидается ответ со статусом 400"""
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
@@ -114,7 +114,7 @@ def test_add_new_pets_age_leter(name=pets_data.name_latin, animal_type= pets_dat
     assert status == 400
 
 def test_add_new_pets_age_symbol(name=pets_data.name_latin, animal_type= pets_data.animal_type_latin, age= pets_data.age_symbol,
-                                pet_photo = 'images/Lohmatyi_Sapog.jpg'):
+                                pet_photo = 'images/kavapu.jpg'):
     """Проверяем добавление нового питомца, вхлдные данные имя и тип латиницей,  возраст спецсимволами,
     ожидается ответ со статусом 400"""
     pet_photo = os.path.join(os.path.dirname(__file__), pet_photo)
@@ -124,7 +124,7 @@ def test_add_new_pets_age_symbol(name=pets_data.name_latin, animal_type= pets_da
     assert status == 400
 
 def test_add_new_pets_age_big(name=pets_data.name_latin, animal_type= pets_data.animal_type_latin, age= pets_data.age_big,
-                                pet_photo = 'images/Lohmatyi_Sapog.jpg'):
+                                pet_photo = 'images/kavapu.jpg'):
     """Проверяем добавление нового питомца, вхлдные данные имя и тип латиницей,  возраст 5000 цифр,
     ожидается ответ со статусом 400"""
 
@@ -135,7 +135,7 @@ def test_add_new_pets_age_big(name=pets_data.name_latin, animal_type= pets_data.
     assert status == 400
 
 def test_add_new_pets_age_huge(name=pets_data.name_latin, animal_type= pets_data.animal_type_latin, age= pets_data.age_huge,
-                                pet_photo = 'images/Lohmatyi_Sapog.jpg'):
+                                pet_photo = 'images/kavapu.jpg'):
     """Проверяем добавление нового питомца, вхлдные данные имя и тип латиницей,  возраст 1000000 цифр,
     ожидается ответ со статусом 400"""
 
@@ -146,7 +146,7 @@ def test_add_new_pets_age_huge(name=pets_data.name_latin, animal_type= pets_data
     assert status == 400
 
 def test_add_new_pets_age_empty(name=pets_data.name_latin, animal_type= pets_data.animal_type_latin, age= pets_data.age_empty,
-                                pet_photo = 'images/Lohmatyi_Sapog.jpg'):
+                                pet_photo = 'images/kavapu.jpg'):
     """Проверяем добавление нового питомца, вхлдные данные имя и тип латиницей,  возраст пустая строка,
     ожидается ответ со статусом 400(по моему мнению данные питомца не должны быть пустыми)"""
 
